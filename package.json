@@ -1,10 +1,10 @@
 {
   "private": true,
   "scripts": {
-    "dev": "next",
-    "build": "next build",
-    "start": "next start",
-    "heroku-postbuild": "next build",
+    "dev": "next web",
+    "build": "next build web",
+    "start": "next start web",
+    "heroku-postbuild": "next build web",
     "type-check": "tsc"
   },
   "dependencies": {

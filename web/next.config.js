@@ -7,7 +7,7 @@ const nextConfig = {
     styledComponents: true,
   },
   output: "export",
-  distDir: "../app/web-dist",
+  distDir: "app/web-dist",
 };
 
 module.exports = nextConfig;

@@ -1,1 +1,0 @@
-postdeploy: npm install && npm run build

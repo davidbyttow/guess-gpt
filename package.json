@@ -1,6 +1,0 @@
-{
-  "name": "guess-gpt",
-  "scripts": {
-    "postinstall": "cd web && npm install && npm run build"
-  }
-}

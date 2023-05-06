@@ -1,6 +1,6 @@
 {
   "private": true,
   "scripts": {
-    "heroku-postbuild": "cd web && npm run build"
+    "heroku-postbuild": "cd web && npm install && npm run build"
   }
 }

@@ -4,7 +4,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "heroku-postbuild": "next build && next export",
+    "heroku-postbuild": "next build",
     "type-check": "tsc"
   },
   "dependencies": {

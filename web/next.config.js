@@ -2,9 +2,12 @@
 const nextConfig = {
   experimental: {
     appDir: true,
-    ssr: false,
+  },
+  compiler: {
     styledComponents: true,
   },
+  output: "export",
+  distDir: "../app/web-dist",
 };
 
 module.exports = nextConfig;

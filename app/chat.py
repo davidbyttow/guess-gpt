@@ -18,7 +18,7 @@ async def chat(ctx: Context, messages: List[ChatMessage]) -> List[ChatMessage]:
     )
 
     prompt_messages = [
-        SystemMessage(content=GUESS_SYSTEM_PROMPT.format(person="Adolf Hitler")),
+        SystemMessage(content=GUESS_SYSTEM_PROMPT.format(person="Joe biden")),
     ]
     for m in messages:
         if m.role == "user":

@@ -48,10 +48,10 @@ class ChatResponse(BaseModel):
 @validate_response(ChatResponse)
 async def chat_route(data: ChatRequest):
     ctx = Context(model="gpt-4")
-    # messages = data.messages
-    # for i in range(10):
-    #     messages.append(ChatMessage(role="assistant", content="Hello"))
-    messages = await chat(ctx=ctx, messages=data.messages)
+    messages = data.messages
+    for i in range(10):
+        messages.append(ChatMessage(role="assistant", content="Hello"))
+    # messages = await chat(ctx=ctx, messages=data.messages)
     return ChatResponse(messages=messages)
 
 

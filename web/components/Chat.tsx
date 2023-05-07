@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { VStack } from "@chakra-ui/react";
+import { VStack, Box } from "@chakra-ui/react";
 
 import { chat, ChatMessage } from "../api/api";
 import MessagesList from "./MessagesList";
@@ -10,6 +10,17 @@ import InputBox from "./InputBox";
 const Chat = ({ messages, setMessages }) => {
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
+    }
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, [messages]);
 
   const addMessage = (message: ChatMessage) => {
     setMessages((prevMessages: [ChatMessage]) => [...prevMessages, message]);
@@ -70,15 +81,18 @@ const Chat = ({ messages, setMessages }) => {
     }
   };
   return (
-    <VStack spacing={3} width="80%" maxWidth={800} overflowY="auto">
-      <MessagesList messages={messages} />
+    <VStack width="100%" maxH="100%">
+      <VStack width="100%" overflowY="scroll" ref={scrollRef}>
+        <MessagesList messages={messages} />
+      </VStack>
       <InputBox
+        ref={inputRef}
         inputMessage={inputMessage}
         isLoading={isLoading}
         onInputChange={handleInputMessageChange}
         onKeyDown={handleKeyDown}
         onSubmit={handleSubmit}
-        placeholder={"Ask a yes/no question or guess who I am..."}
+        placeholder={"Ask or guess who"}
       />
     </VStack>
   );

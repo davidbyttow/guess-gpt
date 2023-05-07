@@ -11,7 +11,7 @@ const MessagesList = ({ messages }) => {
             fontWeight={message.role === "user" ? "bold" : "medium"}
             color={message.role === "user" ? "whatsapp.500" : "red.500"}
           >
-            {message.role === "user" ? "Me" : "Person"}
+            {message.role === "user" ? "Me" : "Someone"}
           </Text>
           <Box
             key={index}

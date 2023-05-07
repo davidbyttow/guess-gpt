@@ -18,6 +18,7 @@ quart = "^0.18.4"
 quart-cors = "^0.6.0"
 quart-schema = "^0.15.0"
 sqlalchemy = "~1"
+cryptography = "^40.0.2"
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.1.0"

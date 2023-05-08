@@ -1,16 +1,16 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 import { useRouter } from "next/navigation";
+import CreatePage from "./create/page";
+import GuessPage from "./guess/page";
 
 export default function Page() {
   const router = useRouter();
-
-  // TODO(d): I don't know why this was necessary and always rendering
-  useEffect(() => {
-    if (typeof window !== "undefined" && window.location.pathname === "/") {
-      router.push("/create");
-    }
-  }, []);
-  return <></>;
+  const params = new URLSearchParams(window.location.search);
+  const key = params.get("key");
+  if (key) {
+    return <GuessPage></GuessPage>;
+  }
+  return <CreatePage></CreatePage>;
 }

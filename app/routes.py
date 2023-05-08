@@ -64,7 +64,7 @@ async def create_route(data: ChatRequest):
 @app.route("/<path:path>")
 async def serve_nextjs_app(path):
     if os.path.isfile(f"{WEB_DIR}/{path}"):
-        return await send_from_directory(WEB_DIR, path)
+        return await send_from_directory(WEB_DIR, f"{path}")
     else:
         return await send_from_directory(WEB_DIR, "index.html")
 

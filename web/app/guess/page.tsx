@@ -22,7 +22,7 @@ const Page = () => {
   console.log(encryptedPerson);
   if (!encryptedPerson) {
     const router = useRouter();
-    router.push("/create");
+    router.push("/");
     return <></>;
   }
 

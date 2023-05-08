@@ -6,6 +6,7 @@ export const metadata = {
     initialScale: 1,
     maximumScale: 1,
   },
+  title: "Guess who?",
 };
 
 export default function RootLayout({ children }) {

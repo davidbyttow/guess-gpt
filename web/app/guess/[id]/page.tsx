@@ -15,7 +15,7 @@ const Page = ({ params }) => {
       id: uuidv4(),
       role: "assistant",
       content:
-        "Let's play a game. I'm a public figure and have to guess who I am by only asking 'Yes/No' questions. You can ask me up to ten questions. You can guess at any time, but if you're wrong, the game is over. Hint: I may not be alive today",
+        "Let's play a game. I'm a public figure (or the spirit of one) and you have to guess who I am by only asking 'Yes/No' questions. You can ask me up to ten questions. You can guess at any time, but if you're wrong, the game is over.",
     },
   ]);
   // const encryptedPerson: any = decodeURIComponent(params.id);

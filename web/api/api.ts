@@ -18,3 +18,8 @@ export const chat = async (req: ChatRequest): Promise<ChatResponse> => {
   const response = await axiosClient.post<ChatResponse>("/v1/chat", req);
   return response.data;
 };
+
+export const create = async (req: ChatRequest): Promise<ChatResponse> => {
+  const response = await axiosClient.post<ChatResponse>("/v1/create", req);
+  return response.data;
+};

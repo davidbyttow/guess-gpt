@@ -11,6 +11,8 @@ class ChatMessage(BaseModel):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
     role: str
     content: str
+    link: Optional[str] = None
+    data: Optional[dict] = None
 
 
 class Chat(BaseModel):

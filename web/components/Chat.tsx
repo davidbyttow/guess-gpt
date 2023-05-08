@@ -3,11 +3,18 @@ import { v4 as uuidv4 } from "uuid";
 
 import { VStack, Box } from "@chakra-ui/react";
 
-import { chat, ChatMessage } from "../api/api";
+import { ChatMessage } from "../api/api";
 import MessagesList from "./MessagesList";
 import InputBox from "./InputBox";
 
-const Chat = ({ messages, setMessages }) => {
+const Chat = ({
+  messages,
+  setMessages,
+  chatApi,
+  person = "AI",
+  placeholder,
+  encryptedPerson = "",
+}) => {
   const [inputMessage, setInputMessage] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -53,10 +60,15 @@ const Chat = ({ messages, setMessages }) => {
 
     try {
       setIsLoading(true);
-      const chatResponse = await chat({
+      const chatResponse = await chatApi({
         messages: [
           ...messages,
-          { id: uuidv4(), role: "user", content: message },
+          {
+            id: uuidv4(),
+            role: "user",
+            content: message,
+            data: { encryptedPerson },
+          },
         ],
       });
 
@@ -83,7 +95,7 @@ const Chat = ({ messages, setMessages }) => {
   return (
     <VStack width="100%" maxH="100%">
       <VStack width="100%" overflowY="scroll" ref={scrollRef}>
-        <MessagesList messages={messages} />
+        <MessagesList messages={messages} assistantName={person} />
       </VStack>
       <InputBox
         ref={inputRef}
@@ -92,7 +104,7 @@ const Chat = ({ messages, setMessages }) => {
         onInputChange={handleInputMessageChange}
         onKeyDown={handleKeyDown}
         onSubmit={handleSubmit}
-        placeholder={"Ask or guess who"}
+        placeholder={placeholder}
       />
     </VStack>
   );

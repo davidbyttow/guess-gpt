@@ -11,3 +11,9 @@ GUESS_SYSTEM_PROMPT = PromptTemplate.from_file(
     ["person"],
     template_format="jinja2",
 )
+
+CREATE_PROMPT = PromptTemplate.from_file(
+    PROMPTS_DIR / "create_prompt.j2",
+    ["person"],
+    template_format="jinja2",
+)

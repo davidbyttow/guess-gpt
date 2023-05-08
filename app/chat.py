@@ -58,7 +58,7 @@ async def create(ctx: Context, messages: List[ChatMessage]) -> Optional[str]:
                 ChatMessage(
                     role="assistant",
                     content="Thanks! Click the button below and share the link with your friends",
-                    link="/guess/" + quote(encrypted, safe=""),
+                    link="/guess?key=" + quote(encrypted, safe=""),
                     data={"linkText": person},
                 )
             )

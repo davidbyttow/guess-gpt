@@ -3,13 +3,13 @@
 import { Spacer } from "@chakra-ui/react";
 import { v4 as uuidv4 } from "uuid";
 import React, { useState } from "react";
-import { chat, ChatMessage } from "../../../api/api";
+import { chat, ChatMessage } from "../../api/api";
+import FullScreen from "../../components/FullScreen";
+import Chat from "../../components/Chat";
 import { useRouter } from "next/navigation";
-import FullScreen from "../../../components/FullScreen";
-import Chat from "../../../components/Chat";
-import useWindowHeight from "../../../hooks/useWindowHeight";
 
-const Page = ({ params }) => {
+const Page = () => {
+  const params = new URLSearchParams(window.location.search);
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       id: uuidv4(),
@@ -18,8 +18,13 @@ const Page = ({ params }) => {
         "Let's play a game. I'm a public figure (or the spirit of one) and you have to guess who I am by only asking 'Yes/No' questions. You can ask me up to ten questions. You can guess at any time, but if you're wrong, the game is over.",
     },
   ]);
-  // const encryptedPerson: any = decodeURIComponent(params.id);
-  const encryptedPerson = params.id;
+  const encryptedPerson = params.get("key");
+  console.log(encryptedPerson);
+  if (!encryptedPerson) {
+    const router = useRouter();
+    router.push("/create");
+    return <></>;
+  }
 
   return (
     <FullScreen>

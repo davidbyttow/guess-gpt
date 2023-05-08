@@ -10,9 +10,7 @@ port = args.port
 
 
 es = encrypt_string("donald trump")
-print(">", es)
 ds = decrypt_string(es)
-print(">", ds)
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=port)

@@ -4,10 +4,8 @@ import { VStack, Flex, Box, Spacer } from "@chakra-ui/react";
 import { v4 as uuidv4 } from "uuid";
 import React, { useState } from "react";
 import { create, ChatMessage } from "../../api/api";
-import { useRouter } from "next/navigation";
 import FullScreen from "../../components/FullScreen";
 import Chat from "../../components/Chat";
-import useWindowHeight from "../../hooks/useWindowHeight";
 
 export default function Page() {
   const [messages, setMessages] = useState<ChatMessage[]>([

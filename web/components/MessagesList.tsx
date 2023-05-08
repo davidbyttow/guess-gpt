@@ -36,7 +36,7 @@ const MessagesList = ({ messages, assistantName }) => {
               type="submit"
               borderRadius={2}
               margin={2}
-              onClick={() => router.push(message.link)}
+              onClick={() => (window.location = message.link)}
             >
               {message.data["linkText"] ? message.data["linkText"] : "Play"}
             </Button>

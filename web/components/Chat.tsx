@@ -94,7 +94,18 @@ const Chat = ({
   };
   return (
     <VStack width="100%" maxH="100%">
-      <VStack width="100%" overflowY="scroll" ref={scrollRef}>
+      <VStack
+        width="100%"
+        overflowY="scroll"
+        ref={scrollRef}
+        sx={{
+          "&::-webkit-scrollbar": {
+            display: "none",
+          },
+          "-ms-overflow-style": "none",
+          "scrollbar-width": "none",
+        }}
+      >
         <MessagesList messages={messages} assistantName={person} />
       </VStack>
       <InputBox

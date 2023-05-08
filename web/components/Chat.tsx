@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useRef, useLayoutEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
-import { VStack, Box } from "@chakra-ui/react";
+import { VStack } from "@chakra-ui/react";
 
 import { ChatMessage } from "../api/api";
 import MessagesList from "./MessagesList";
@@ -20,7 +20,7 @@ const Chat = ({
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }

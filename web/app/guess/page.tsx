@@ -16,7 +16,7 @@ export default function Page() {
       id: uuidv4(),
       role: "assistant",
       content:
-        "Can you guess who I am? You can ask me Yes/No questions or guess who I am. If you guess wrong or ask more than 10 questions, the game is over.",
+        "Let's play a game. I'm a public figure and have to guess who I am by only asking 'Yes/No' questions. You can ask me up to ten questions. You can guess at any time, but if you're wrong, the game is over. Hint: I may not be alive today",
     },
   ]);
 

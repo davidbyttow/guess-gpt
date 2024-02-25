@@ -15,7 +15,7 @@ const Page = () => {
       id: uuidv4(),
       role: "assistant",
       content:
-        "Let's play a game. I'm a public figure (or the spirit of one) and you have to guess who I am by only asking 'Yes/No' questions. You can ask me up to ten questions. You can guess at any time, but if you're wrong, the game is over.",
+        "I'd like to play a game. I'm a publicly known person (dead or alive) and must guess who I am by only asking 'Yes' or 'No' questions. You can ask me up to ten questions. You can guess at any time, but if you're wrong, the game is over.",
     },
   ]);
   const encryptedPerson = params.get("key");

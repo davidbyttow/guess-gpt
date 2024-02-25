@@ -2,7 +2,7 @@ import os
 
 from pydantic import BaseModel
 
-DEFAULT_MODEL = "gpt-3.5-turbo"
+DEFAULT_MODEL = "gpt-4"
 DEFAULT_OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
 
 
